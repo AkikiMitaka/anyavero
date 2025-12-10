@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya Vero - Searching For Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            /* LIGHT THEME */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --color-light: #1A1A1A; /* Main Text / Dark Accent */
+            --color-dark: #F4F4F4; /* Main Background / Light Accent */
+            --color-accent: #B0A175; /* Gold/Bronze Accent */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--color-dark); /* Light Background */
+            color: var(--color-light); /* Dark Text */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Header & Navigation (Light Mode) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(244, 244, 244, 0.9); 
+            backdrop-filter: blur(5px);
+            transition: background 0.3s ease;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            color: var(--color-light);
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            margin-left: 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            color: var(--color-dark); /* Light text over hero image */
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: -1;
+            filter: brightness(0.8); 
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            font-weight: 300;
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .hero-content p {
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 6rem 0; /* Base padding */
+        }
+        
+        /* Space between Hero and About */
+        #about {
+            padding-top: 10rem; 
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* --- Collection/Works Showcase --- */
+        .work-showcase {
+            display: flex;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: flex-start;
+        }
+        
+        .work-showcase:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .work-image-placeholder {
+            flex: 1;
+            max-width: 45%;
+            aspect-ratio: 1 / 1;
+            background-color: rgba(26, 26, 26, 0.05); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: rgba(26, 26, 26, 0.4);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .work-content {
+            flex: 1.5;
+            padding: 0 2rem;
+        }
+        
+        .work-content h3 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .work-content p {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--color-light);
+        }
+        
+        .gallery-placeholder {
+            height: 200px;
+            background-color: rgba(26, 26, 26, 0.03);
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: rgba(26, 26, 26, 0.3);
+        }
+
+        /* --- About Section --- */
+        #about .bio-flex {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        #about .bio-flex-img {
+            flex: 1;
+        }
+
+        #about .bio-flex-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        #about .bio-flex-text {
+            flex: 2;
+        }
+
+        #about .bio-flex-text h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #about .bio-flex-text p {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Contact Form Section --- */
+        #contact {
+            background-color: var(--color-dark);
+        }
+        
+        .contact-form {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--color-light); 
+            text-align: left;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.2); 
+            color: var(--color-light);
+            padding: 0.75rem 0.25rem;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            width: 100%;
+            transition: border-color 0.3s;
+            resize: vertical;
+        }
+
+        .contact-form textarea {
+            border: 1px solid rgba(26, 26, 26, 0.2);
+            padding: 0.75rem;
+            min-height: 120px;
+        }
+
+        .contact-form select {
+            border: 1px solid rgba(26, 26, 26, 0.2);
+            padding: 0.75rem;
+            appearance: none;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        
+        .contact-form button {
+            background: var(--color-light);
+            color: var(--color-dark);
+            border: none;
+            padding: 1rem 2rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--color-accent);
+            color: var(--color-light);
+        }
+
+        /* --- General Button Style for Hero & Collections --- */
+        .button {
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--color-dark); 
+            color: var(--color-dark);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            border-radius: 4px;
+        }
+        .hero .button {
+            border: 2px solid var(--color-dark);
+            color: var(--color-dark);
+            margin-top: 2rem;
+            background-color: transparent;
+        }
+        .hero .button:hover {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+        }
+        .work-content .button {
+            border: 1px solid var(--color-light);
+            color: var(--color-light);
+            background-color: transparent;
+        }
+        .work-content .button:hover {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-dark);
+        }
+        
+        /* --- Footer (Light Theme) --- */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: #e8e8e8;
+            border-top: 1px solid rgba(26, 26, 26, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-light);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        footer p {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            opacity: 0.6;
+            color: var(--color-light);
+        }
+
+        /* --- Horizontal rule --- */
+        hr {
+            border: none;
+            height: 1px;
+            background: rgba(26, 26, 26, 0.1);
+            margin: 4rem auto;
+            width: 70%;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 1024px) {
+            .work-showcase {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .work-showcase:nth-child(even) {
+                flex-direction: column;
+            }
+            .work-image-placeholder {
+                max-width: 100%;
+                width: 100%;
+            }
+            .work-content {
+                padding: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+                letter-spacing: 3px;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .contact-form input {
+                width: 100%;
+                margin: 0 0 1rem 0;
+            }
+            header {
+                padding: 1rem 1.5rem;
+            }
+            nav {
+                display: none;
+            }
+            .footer-links a {
+                margin: 0.5rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Anya Vero</div>
+        <nav>
+            <!-- UPDATED HEADER LINKS -->
+            <a href="searching-for-home.html">SEARCHING FOR HOME</a>
+            <a href="women-groundbreakers.html">WOMEN GROUNDBREAKERS</a>
+            <a href="art-for-freedom.html">ART FOR FREEDOM</a>
+            <a href="about-artist.html">ABOUT</a>
+        </nav>
+    </header>
+
+    <!--
+    ////////////////////////////////
+    1. HERO SECTION
+    ////////////////////////////////
+    -->
+    <section class="hero" id="home">
+        <!-- Placeholder for background image. REMINDER: Replace with your non-Imgur link -->
+        <img src="REPLACE_WITH_YOUR_FLICKR_HERO_IMAGE_URL" alt="Abstract background for exhibition" class="hero-image">
+        <div class="hero-content">
+            <h1>Searching For Home</h1>
+            <p>An immersive exhibition in a nuclear bunker</p>
+        </div>
+    </section>
+    
+    <!--
+    ////////////////////////////////
+    2. ABOUT SECTION (MOVED UP)
+    ////////////////////////////////
+    -->
+    <section id="about" class="container">
+        <h2 class="section-title">Anya Vero</h2>
+        <p class="section-subtitle">Exploring the blurred lines between art and anthropology</p>
+        <div class="bio-flex">
+            <div class="bio-flex-img">
+                <img src="REPLACE_WITH_YOUR_FLICKR_ARTIST_IMAGE" alt="Anya Vero, the artist">
+            </div>
+            <div class="bio-flex-text">
+                <h3>The Intersection of Cultures and Canvas</h3>
+                <!-- UPDATED BIOGRAPHY TEXT -->
+                <p>Anya Vero explores the blurred lines between art and anthropology, with a signature style of oil painted on silk stretched over asymmetrical canvases that play with explicit non-conformity. She draws on her anthropological research to explore the human condition through her paintings, with themes such as human trafficking, abuse, depression and oppression, but also sensuality, relationships and the human body. Her work often revolves around female empowerment, sexuality and being.</p>
+                <p>She exhibited at various galleries including the TATE Modern Exchange in London and Museum LV in Riga. A Ukrainian-Russian born in Latvia, she has a degree in Fine Art from the Ruskin School (Oxford University), Masters degrees in Anthropology from the London School of Economics and SOAS, and an Art Diploma from the University of the Arts London.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    
+    <!--
+    ////////////////////////////////
+    3. COLLECTIONS SHOWCASE
+    ////////////////////////////////
+    -->
+    <section id="collections" class="container">
+        <h2 class="section-title">Featured Works</h2>
+
+        <!-- SEARCHING FOR HOME COLLECTION (Placed first) -->
+        <div class="work-showcase" id="searching-for-home">
+            <div class="work-image-placeholder">
+                [Placeholder for "Searching For Home" Image]
+            </div>
+            <div class="work-content">
+                <h3>Searching For Home</h3>
+                <p>Searching For Home reflects on the meaning of belonging in the modern world. Increasingly, our identities are blurred, we explore new horizons and places to settle, in search of a place and state we can call home. It’s not just about the physical location but also the choice of vocation, the meaning to one’s life and the sense of belonging to certain communities and people.</p>
+                <div class="gallery-placeholder">
+                    [Placeholder for Slideshow Gallery]
+                </div>
+                <a href="/searching-for-home" class="button">Explore The Collection &rarr;</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- WOMEN GROUNDBREAKERS COLLECTION -->
+        <div class="work-showcase" id="women-groundbreakers">
+            <div class="work-image-placeholder">
+                [Placeholder for "Women Groundbreakers" Image]
+            </div>
+            <div class="work-content">
+                <h3>Women Groundbreakers</h3>
+                <!-- UPDATED COLLECTION DESCRIPTION -->
+                <p>Women Groundbreakers explores the lives and works of 33 women across the sciences, arts and humanities who devoted their lives to changing the world for the better. We travel around the world and back through the centuries to learn about the invention of Kevlar, the discovery of the earth’s solid core, the history of Abstract painting, the fight against malaria, the fight for civil rights in America, the very dawn of classical mathematics, our relationship with our ape ancestors, and countless other incredible discoveries and ideas…</p>
+                <div class="gallery-placeholder">
+                    [Placeholder for Slideshow Gallery]
+                </div>
+                <a href="/women-groundbreakers" class="button">Discover This Collection &rarr;</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- ART FOR FREEDOM COLLECTION -->
+        <div class="work-showcase" id="art-for-freedom">
+            <div class="work-image-placeholder">
+                [Placeholder for "Art For Freedom" Image]
+            </div>
+            <div class="work-content">
+                <h3>Art For Freedom</h3>
+                <!-- UPDATED COLLECTION DESCRIPTION -->
+                <p>Art For Freedom seeks to make the invisible visible again, exploring the effects of human trafficking, both from a broad perspective and through the lives and stories of the individuals it has tried to steal from us. Portraits of human trafficking survivors are unveiled alongside their own personal experiences: how they were trafficked and how they escaped again.</p>
+                <div class="gallery-placeholder">
+                    [Placeholder for Slideshow Gallery]
+                </div>
+                <a href="/art-for-freedom" class="button">Explore The Works &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!--
+    ////////////////////////////////
+    6. CONTACT SECTION (More fields & Web3Forms ready)
+    ////////////////////////////////
+    -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Inquiries & Contact</h2>
+        <div class="contact-form">
+            <p style="font-family: var(--font-sans); font-size: 1rem; margin-bottom: 2rem; color: var(--color-light);">
+                For commissions, press, or collaboration, please fill out the form below.
+            </p>
+            <!-- IMPORTANT: Change YOUR_WEB3FORMS_ACCESS_KEY_HERE to your key -->
+            <form action="https://api.web3forms.com/submit" method="post">
+                
+                <!-- Hidden Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="New Inquiry from AnyaVero.com">
+                
+                <div>
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="Full Name" required>
+                </div>
+                <div>
+                    <label for="company_org">Company / Organization (Optional)</label>
+                    <input type="text" id="company_org" name="Company/Organization">
+                </div>
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="Phone Number">
+                </div>
+                <div>
+                    <label for="inquiry_type">Type of Inquiry</label>
+                    <select id="inquiry_type" name="Inquiry Type" required>
+                        <option value="" disabled selected>-- Select One --</option>
+                        <option value="Commission">Private Commission</option>
+                        <option value="Press">Press / Media Request</option>
+                        <option value="Gallery">Gallery / Exhibition Opportunity</option>
+                        <option value="General">General Question</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="Message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!--
+    ////////////////////////////////
+    7. FOOTER
+    ////////////////////////////////
+    -->
+    <footer>
+        <div class="footer-links">
+            <!-- UPDATED FOOTER LINKS -->
+            <a href="searching-for-home.html">SEARCHING FOR HOME</a>
+            <a href="women-groundbreakers.html">WOMEN GROUNDBREAKERS</a>
+            <a href="art-for-freedom.html">ART FOR FREEDOM</a>
+            <a href="about-artist.html">ABOUT</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+        <p>&copy; 2025 Anya Vero. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple observer for fade-in effect (kept from original code)
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('section, hr');
+
+            const sectionObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, sectionObserverOptions);
+
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 1s ease, transform 1s ease';
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
