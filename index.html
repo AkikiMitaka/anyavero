@@ -176,6 +176,13 @@
             border-radius: 4px;
             overflow: hidden;
         }
+
+        .work-image-placeholder img {
+            width: 100%;
+            height: auto;
+            max-height: 500px; /* Limits height so long images don't break the layout */
+            object-fit: contain;
+        }
         
         .work-content {
             flex: 1.5;
