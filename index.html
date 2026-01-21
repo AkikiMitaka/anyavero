@@ -73,12 +73,20 @@
         .logo:hover {
             color: var(--color-accent);
         }
-
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: nowrap;          /* stop wrapping onto new lines */
+            align-items: center;
+        }
+        
         nav a {
             color: var(--color-light);
             text-decoration: none;
             display: flex;
             gap: 2rem;
+            white-space: nowrap;
             font-family: var(--font-sans);
             font-size: 0.8rem;
             text-transform: uppercase;
