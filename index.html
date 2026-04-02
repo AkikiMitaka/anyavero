@@ -180,8 +180,6 @@
         .hero-painting img {
             width: 100%;
             height: auto;
-            transform: rotate(-5deg);
-            box-shadow: 8px 8px 30px rgba(0,0,0,0.15);
         }
 
         .hero-footer {
@@ -257,8 +255,6 @@
 
         .painting-angled {
             max-width: 280px;
-            transform: rotate(4deg);
-            box-shadow: 6px 6px 20px rgba(0,0,0,0.12);
         }
 
         .painting-angled img {
@@ -321,11 +317,22 @@
             color: var(--color-gold);
         }
 
+        .event-description {
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .event-invitees {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
         .programme-painting {
             max-width: 350px;
             margin: 4rem 0 0 auto;
-            transform: rotate(-3deg);
-            box-shadow: 6px 6px 20px rgba(0,0,0,0.12);
         }
 
         .programme-painting img {
@@ -352,8 +359,6 @@
         .statement-painting {
             max-width: 350px;
             margin: 0 auto;
-            transform: rotate(3deg);
-            box-shadow: 6px 6px 20px rgba(0,0,0,0.12);
         }
 
         .statement-painting img {
@@ -565,11 +570,11 @@
                     </div>
 
                     <div style="display: flex; gap: 2rem; margin-top: 2rem;">
-                        <div class="painting-angled" style="transform: rotate(-4deg);">
+                        <div class="painting-angled">
                             <img src="/assets/images/wg/Hedy-Lamarr-main-square-new-S.jpg" alt="Hedy Lamarr">
                             <p class="painting-caption">Hedy Lamarr<br>Oil on silk, approx. 81 x 74 cm, 2020</p>
                         </div>
-                        <div class="painting-angled" style="transform: rotate(3deg);">
+                        <div class="painting-angled">
                             <img src="/assets/images/wg/Jane-Goodall-main-square-S.jpg" alt="Jane Goodall">
                             <p class="painting-caption">Jane Goodall<br>Oil on silk, approx. 82 x 70 cm, 2021</p>
                         </div>
@@ -577,7 +582,7 @@
                 </div>
 
                 <div class="concept-right">
-                    <div class="painting-angled" style="transform: rotate(5deg); max-width: 240px; align-self: flex-end;">
+                    <div class="painting-angled" style="max-width: 240px; align-self: flex-end;">
                         <img src="/assets/images/wg/Yayoi-Kusama-main-square-S.jpg" alt="Yayoi Kusama">
                         <p class="painting-caption">Yayoi Kusama<br>Oil and mixed media on silk, approx. 90 x 68 cm, 2021</p>
                     </div>
@@ -603,34 +608,38 @@
                 <div class="schedule-day">
                     <div class="day-name">Thursday 7th May</div>
                     <div class="day-events">
-                        <p><span class="time">6 &ndash; 9 pm</span> Vernissage</p>
-                        <p><span class="time">7 pm</span> Presentation on Jane Goodall</p>
-                        <p>Charity sale</p>
+                        <p><span class="time">6 &ndash; 9 pm</span> Vernissage Gala with Jane Goodall Institute</p>
+                        <p class="event-description">A truly special evening with Jane Goodall Institute ambassadors, inspiring people and a special tribute to the one and only Jane Goodall, with proceeds from sold artworks going towards Jane Goodall Institute's Clever Girls project in Uganda. Given the right opportunities, girls can break the cycle of poverty in just one generation! We invite you to be a part of this journey with us, meet incredible people, learn about female role models and have an evening of truly meaningful conversations.</p>
+                        <p class="event-invitees">Invitees: Jane Goodall Institute network, British Embassy, UN Women, UN, Austrian politicians &amp; diplomats; IMP, Research Institutes, Oxbridge &amp; LSE network, Austrian Startups, Mompreneurs.</p>
                     </div>
                 </div>
 
                 <div class="schedule-day">
                     <div class="day-name">Friday 8th May</div>
                     <div class="day-events">
-                        <p><span class="time">9 &ndash; 12 pm</span> Roots &amp; Shoots by Jane Goodall Institute</p>
-                        <p><span class="time">3 &ndash; 5 pm</span> Parents with children open workshop</p>
-                        <p><span class="time">7 pm</span> Inspiring women of Austria networking event</p>
+                        <p><span class="time">9 am &ndash; 12 pm</span> Roots &amp; Shoots by Jane Goodall Institute</p>
+                        <p class="event-description">A special educational workshop designed for adults and children to learn about Jane Goodall's work and how they can make a change in the world. The Roots &amp; Shoots programme empowers young people worldwide to protect people, animals, and the environment by creating local projects &mdash; connecting over 10,000 groups in 60+ countries shaping a better future together.</p>
+                        <p><span class="time">3 &ndash; 5 pm</span> Children drawing session amongst Women Groundbreakers</p>
+                        <p><span class="time">7 pm</span> Inspiring women networking event</p>
                     </div>
                 </div>
 
                 <div class="schedule-day">
                     <div class="day-name">Saturday 9th May</div>
                     <div class="day-events">
-                        <p><span class="time">12 &ndash; 4 pm</span> Parents &amp; children workshops</p>
-                        <p><span class="time">8 pm</span> Concert celebrating women</p>
+                        <p><span class="time">12 &ndash; 2 pm</span> Parents with kids open workshops &mdash; &ldquo;Meet and greet a scientist&rdquo;</p>
+                        <p><span class="time">3 &ndash; 5 pm</span> Mother&rsquo;s Day special: children and mothers drawing session &mdash; drawing the mum, bonding, learning about female role models</p>
+                        <p><span class="time">8 pm</span> Gig celebrating female songwriters</p>
                     </div>
                 </div>
 
                 <div class="schedule-day">
                     <div class="day-name">Sunday 10th May</div>
                     <div class="day-events">
-                        <p><span class="time">2 pm</span> Children drawing session</p>
-                        <p><span class="time">5 pm</span> Drawing session, followed by networking</p>
+                        <p><span class="time">12 &ndash; 2 pm</span> Parents with kids open workshops &mdash; &ldquo;Meet and greet a scientist&rdquo;</p>
+                        <p><span class="time">3 &ndash; 5 pm</span> Mother&rsquo;s Day special: children and mothers drawing session &mdash; drawing the mum</p>
+                        <p><span class="time">5 &ndash; 7 pm</span> Adult drawing session, followed by networking</p>
+                        <p><span class="time">7:30 pm</span> Salsa night &mdash; all proceeds go to charity, dance for love</p>
                     </div>
                 </div>
             </div>
@@ -680,7 +689,7 @@
                     <p>In keeping with the spirit of their founder, the institute continues its work to ensure the survival of the last chimpanzees and to create a healthy environment where people, animals, and nature can live together peacefully.</p>
                 </div>
                 <div>
-                    <div class="painting-angled" style="transform: rotate(-3deg); max-width: 320px; margin: 0 auto;">
+                    <div class="painting-angled" style="max-width: 320px; margin: 0 auto;">
                         <img src="/assets/images/wg/Jane-Goodall-main-square-S.jpg" alt="Jane Goodall painting by Anya Vero">
                         <p class="painting-caption">Jane Goodall<br>Oil on silk, approx. 95 x 89 cm, 2021</p>
                     </div>
