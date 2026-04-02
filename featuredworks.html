@@ -29,6 +29,8 @@
             color: var(--color-light); /* Dark Text */
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 120px; /* adjust as needed */
+
         }
 
         .container {
@@ -48,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(244, 244, 244, 0.9); 
+            background: var(--color-dark);
             backdrop-filter: blur(5px);
             transition: background 0.3s ease;
             box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
@@ -56,7 +58,11 @@
 
         header a {
             text-decoration: none;
-            color: var(--color-light);
+            color: var(--color-dark);
+        }
+
+        header a:hover {
+            color: var(--color-accent);
         }
 
         .logo {
@@ -146,10 +152,6 @@
             padding: 6rem 0; /* Base padding */
         }
         
-        /* Space between Hero and About */
-        #about {
-            padding-top: 10rem; 
-        }
 
         .section-title {
             font-family: var(--font-serif);
@@ -177,16 +179,12 @@
             margin-bottom: 6rem;
             align-items: flex-start;
         }
-        
-        .work-showcase:nth-child(even) {
-            flex-direction: row-reverse;
-        }
 
         .work-image-placeholder {
             flex: 1;
             max-width: 45%;
             aspect-ratio: 1 / 1;
-            background-color: rgba(26, 26, 26, 0.05); 
+            background-color: #FFFFFF;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -393,9 +391,6 @@
             nav {
                 display: none;
             }
-            #about .bio-flex {
-                flex-direction: column;
-            }
             .footer-links a {
                 margin: 0.5rem 0.8rem;
             }
@@ -408,30 +403,64 @@
         <a href="index.html" class="logo">Anya Vero</a>
         <nav>
             <a href="index.html">Vienna 2026</a>
-            <a href="featuredworks.html">Featured Works</a>
+            <a href="featuredworks.html" class="active">Featured Works</a>
             <a href="womengroundbreakers.html">Women Groundbreakers</a>
             <a href="searchingforhome.html">Searching For Home</a>
-            <a href="about.html" class="active">About</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
     
-    <section id="about" class="container">
-        <h2 class="section-title">Anya Vero</h2>
-        <div class="bio-flex">
-            <div class="bio-flex-img">
-                <img src="/assets/images/AnyaVero-About.jpg" alt="Anya Vero, the artist">
+    <!--
+    ////////////////////////////////
+    3. COLLECTIONS SHOWCASE
+    ////////////////////////////////
+    -->
+    <section id="collections" class="container">
+        <h2 class="section-title">Featured Works</h2>
+
+        <!-- SEARCHING FOR HOME COLLECTION (Placed first) -->
+        <div class="work-showcase" id="searching-for-home">
+            <div class="work-image-placeholder">
+                 <img src="/assets/images/AnyaVero-CopperRoad.jpg" alt="Anya Vero, the artist">
             </div>
-            <div class="bio-flex-text">
-                <p>Vero’s work is a reflection of her inner journey in relation to the society and its systems with themes such as identity, sensuality and relationships as well as human trafficking and misplacement. Drawing on her anthropological knowledge she explores a variety of aspects of the human condition. She uses oil on silk painted over shaped canvases, playing with the explicit non-conformity to capture the fragility and sensuality of how humans happen to be. Her portraiture work revolves around female empowerment and role models, whereas her landscape series are portraits of the inner world reflecting on what is home.</p>
-                <p>A Ukrainian-Russian born in Latvia, she has a degree in Fine Art from the prestigious Ruskin School of Drawing and Fine Art at Oxford University, Masters degrees in Anthropology from the London School of Economics and SOAS, and an art degree from the University of the Arts London. She grew up between 3 different states: school time in Latvia, village summers in Ukraine and a cultural programme in Moscow, moving away at the age of sixteen to London.</p>
-                <p>While in London she created Art for Freedom, a series focused on human trafficking, working in partnership with two Mexican organisations - SINTRATA and the Comisión Unidos Contra la Trata. She painted portraits from photographs of the survivors they work with, exhibiting them alongside their stories about their experiences. The collection was showcased at a multidisciplinary event at Carousel Gallery in London Mayfair, with talks by a leading Human Rights barrister, the international anti-slavery charity A21 and bespoke creations by a perfumer and a songwriter.</p>
-                <p>In London Vero took part in the Self Impressions Tate Exchange event at the Tate Modern, organised by the Institute of Philosophy, University of London, exploring different elements of identity alongside a line-up of leading philosophers and neuroscientists.</p>
-                <p>One of her recent collections celebrates Women Groundbreakers, through 33 paintings in oil on silk, with special events in Vienna at Area 1070 Gallery and at the Research Institute of Molecular Pathology, alongside performances, mini-lectures and presentations.</p>
-            </br>
+            <div class="work-content">
+                <h3>Searching For Home</h3>
+                <p>Searching For Home reflects on the meaning of belonging in the modern world. Increasingly, our identities are blurred, we explore new horizons and places to settle, in search of a place and state we can call home. It’s not just about the physical location but also the choice of vocation, the meaning to one’s life and the sense of belonging to certain communities and people.</p>
+                <a href="/searchingforhome.html" class="button">Explore The Collection &rarr;</a>
+            </div>
+        </div>
+
+        <!-- WOMEN GROUNDBREAKERS COLLECTION -->
+        <div class="work-showcase" id="women-groundbreakers">
+            <div class="work-image-placeholder">
+                 <img src="/assets/images/AnyaVero-YayoiKusama.jpg" alt="Anya Vero, the artist">
+            </div>
+            <div class="work-content">
+                <h3>Women Groundbreakers</h3>
+                <!-- UPDATED COLLECTION DESCRIPTION -->
+                <p>Women Groundbreakers explores the lives and works of 33 women across the sciences, arts and humanities who devoted their lives to changing the world for the better. We travel around the world and back through the centuries to learn about the invention of Kevlar, the discovery of the earth’s solid core, the history of Abstract painting, the fight against malaria, the fight for civil rights in America, the very dawn of classical mathematics, our relationship with our ape ancestors, and countless other incredible discoveries and ideas…</p>
+                <a href="/womengroundbreakers.html" class="button">Discover This Collection &rarr;</a>
+            </div>
+        </div>
+
+        <!-- ART FOR FREEDOM COLLECTION -->
+        <div class="work-showcase" id="art-for-freedom">
+            <div class="work-image-placeholder">
+                 <img src="/assets/images/AnyaVero-GapsInHumanity.jpg" alt="Gaps in Humanity painting by Anya Vero">
+            </div>
+            <div class="work-content">
+                <h3>Art For Freedom</h3>
+                <!-- UPDATED COLLECTION DESCRIPTION -->
+                <p>Art For Freedom seeks to make the invisible visible again, exploring the effects of human trafficking, both from a broad perspective and through the lives and stories of the individuals it has tried to steal from us. Portraits of human trafficking survivors are unveiled alongside their own personal experiences: how they were trafficked and how they escaped again.</p>
             </div>
         </div>
     </section>
-   
+
+    <!--
+    ////////////////////////////////
+    7. FOOTER
+    ////////////////////////////////
+    -->
     <footer>
         <div class="footer-links">
             <a href="index.html">Vienna 2026</a>
