@@ -486,6 +486,77 @@
             opacity: 0.5;
         }
 
+        /* --- Hero Events --- */
+        .hero-events {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            width: 100%;
+            max-width: 640px;
+            margin: 1rem auto 0;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-left: 3px solid var(--color-gold);
+            text-align: left;
+            backdrop-filter: blur(4px);
+        }
+
+        .event-card .event-date {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-card .event-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        .event-button {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .event-button:hover {
+            background: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        @media (max-width: 600px) {
+            .event-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .event-button {
+                justify-self: center;
+            }
+        }
+
         /* --- Mobile Menu --- */
         .menu-toggle {
             display: none;
@@ -602,6 +673,28 @@
             .quote {
                 font-size: 1.3rem;
             }
+            .hero {
+                padding: 7rem 1.25rem 3rem;
+            }
+            .hero-events {
+                gap: 1rem;
+            }
+            .event-card {
+                padding: 1rem 1.1rem;
+                gap: 1rem;
+            }
+            .event-card .event-name {
+                font-size: 1.15rem;
+            }
+            .event-card .event-date {
+                font-size: 0.65rem;
+            }
+            .event-button {
+                font-size: 0.65rem;
+                padding: 0.7rem 1rem;
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -640,7 +733,41 @@
         <p class="hero-heading-sub">x Jane Goodall Institute Austria</p>
         <p class="hero-date">7 May &ndash; 10 May 2026</p>
 
-        <div class="hero-painting">
+        <div class="hero-events">
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Thursday 7 May &middot; 6&ndash;9 pm</div>
+                    <div class="event-name">Vernissage</div>
+                </div>
+                <a href="vernissage.html" class="event-button">Register Here</a>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Friday 8 May &middot; 9 am &ndash; 12 pm</div>
+                    <div class="event-name">Roots &amp; Shoots Workshop</div>
+                </div>
+                <a href="roots-shoots.html" class="event-button">Register Here</a>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Friday 8 May &middot; 7 pm</div>
+                    <div class="event-name">Inspiring Women of Vienna Networking</div>
+                </div>
+                <a href="inspiring-women.html" class="event-button">Request Invitation</a>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Saturday 9 &ndash; Sunday 10 May</div>
+                    <div class="event-name">Parents with Kids Workshops</div>
+                </div>
+                <a href="family-workshops.html" class="event-button">Register Here</a>
+            </div>
+        </div>
+
+        <div class="hero-painting" style="margin-top: 3rem;">
             <img src="/assets/images/wg/Jane-Goodall-main-square-S.png" alt="Jane Goodall, oil on silk by Anya Vero">
         </div>
 
@@ -656,10 +783,10 @@
 
             <div class="concept-layout">
                 <div class="concept-text">
-                    <p>A five-day art exhibition in the heart of Vienna, focused on inspiring future generations with female role models from the arts, sciences and humanities, featuring talks from the Jane Goodall Institute, cultural events, and business networking opportunities. Celebrating the life of Jane Goodall and other female groundbreakers.</p>
+                    <p>A four-day art exhibition in the heart of Vienna, focused on inspiring future generations with female role models from the arts, sciences and humanities, featuring talks from the Jane Goodall Institute, cultural events, and business networking opportunities. Celebrating the life of Jane Goodall and other female groundbreakers.</p>
 
                     <div class="charity-note">
-                        Part of proceeds from sales of prints and paintings will be donated to Jane Goodall Institute's Clever Girls project that empowers girls and women to take control of their own lives through education.
+                        Proceeds from various events throughout the four days will support a range of charitable initiatives, including the Jane Goodall Institute's Clever Girls project, which empowers girls and women to take control of their own lives through education.
                     </div>
 
                 </div>
