@@ -150,6 +150,40 @@
             color: var(--color-text);
         }
 
+        .sessions-list {
+            margin: 2rem 0 3rem;
+            padding: 1.75rem 2rem;
+            background: rgba(217, 205, 176, 0.18);
+            border-left: 3px solid var(--color-gold);
+        }
+        .sessions-list h3 {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .sessions-list ul { list-style: none; padding: 0; margin: 0; }
+        .sessions-list li {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(176, 161, 117, 0.25);
+        }
+        .sessions-list li:last-child { border-bottom: none; }
+        .sessions-list li .session-time {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-gold);
+            font-weight: 600;
+            display: inline-block;
+            min-width: 230px;
+        }
+
         .form-section {
             margin-top: 3rem;
         }
@@ -256,8 +290,8 @@
                 <dd>Saturday 9 &amp; Sunday 10 May 2026</dd>
             </div>
             <div>
-                <dt>Times</dt>
-                <dd>12 &ndash; 2 pm &middot; 3 &ndash; 5 pm</dd>
+                <dt>Sessions</dt>
+                <dd>4 sessions across the weekend (see below)</dd>
             </div>
             <div>
                 <dt>Venue</dt>
@@ -268,6 +302,16 @@
                 <dd>&ldquo;Meet a Scientist&rdquo; drop-ins free &middot; Drawing workshops 20 EUR per child (parents free)</dd>
             </div>
         </dl>
+
+        <div class="sessions-list">
+            <h3>The four sessions</h3>
+            <ul>
+                <li><span class="session-time">Sat 9 May &middot; 12 &ndash; 2 pm</span> Meet a Scientist (drop-in, free)</li>
+                <li><span class="session-time">Sat 9 May &middot; 3 &ndash; 5 pm</span> Parents &amp; children drawing session</li>
+                <li><span class="session-time">Sun 10 May &middot; 12 &ndash; 2 pm</span> Meet a Scientist (drop-in, free)</li>
+                <li><span class="session-time">Sun 10 May &middot; 3 &ndash; 5 pm</span> Mother's Day drawing session</li>
+            </ul>
+        </div>
 
         <p>A weekend of creative workshops for parents and children, set among the portraits of <em>Women Groundbreakers</em>.</p>
 
