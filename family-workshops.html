@@ -164,18 +164,15 @@
 
         .form-embed {
             width: 100%;
-            min-height: 600px;
-            background: rgba(217, 205, 176, 0.1);
-            border: 2px dashed rgba(176, 161, 117, 0.4);
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--color-text);
-            opacity: 0.6;
-            text-align: center;
-            padding: 2rem;
+        }
+        .form-embed iframe {
+            width: 100%;
+            max-width: 640px;
+            min-height: 992px;
+            border: none;
+            display: block;
         }
 
         .back-link {
@@ -283,7 +280,7 @@
         <div class="form-section">
             <h2>Register</h2>
             <div class="form-embed">
-                [Google Form embed goes here]
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdPfQAf0RiDhXj5Cn7TtkWpDHsM-RtzSTjbeOpthKpHxTaMMg/viewform?embedded=true" width="640" height="992" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
 
