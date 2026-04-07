@@ -162,20 +162,52 @@
             text-align: center;
         }
 
-        .form-embed {
+        .rs-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+        .rs-gallery figure { margin: 0; }
+        .rs-gallery img {
             width: 100%;
-            min-height: 600px;
-            background: rgba(217, 205, 176, 0.1);
-            border: 2px dashed rgba(176, 161, 117, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: auto;
+            display: block;
+        }
+        .rs-gallery figcaption {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .rs-link {
             font-family: var(--font-sans);
             font-size: 0.85rem;
-            color: var(--color-text);
-            opacity: 0.6;
             text-align: center;
-            padding: 2rem;
+            margin: 1rem 0 2rem;
+        }
+        .rs-link a {
+            color: var(--color-gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-gold);
+        }
+        .rs-link a:hover { color: var(--color-text); border-bottom-color: var(--color-text); }
+        @media (max-width: 600px) {
+            .rs-gallery { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+
+        .form-embed {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .form-embed iframe {
+            width: 100%;
+            max-width: 640px;
+            min-height: 723px;
+            border: none;
+            display: block;
         }
 
         .back-link {
@@ -278,10 +310,23 @@
 
         <p>Hosted by the Jane Goodall Institute Austria, in the heart of the Women Groundbreakers exhibition.</p>
 
+        <div class="rs-gallery">
+            <figure>
+                <img src="/assets/images/roots-shoots/roots-shoots-1-robert-ratzer.jpg" alt="Roots &amp; Shoots workshop">
+                <figcaption>Photo: Robert Ratzer</figcaption>
+            </figure>
+            <figure>
+                <img src="/assets/images/roots-shoots/roots-shoots-2-daniela-matejschek.jpg" alt="Roots &amp; Shoots workshop">
+                <figcaption>Photo: &copy; Daniela Matejschek</figcaption>
+            </figure>
+        </div>
+
+        <p class="rs-link">More about Roots &amp; Shoots on the <a href="https://janegoodall.at/roots-shoots/" target="_blank" rel="noopener noreferrer">Jane Goodall Institute site</a>.</p>
+
         <div class="form-section">
             <h2>Register</h2>
             <div class="form-embed">
-                [Google Form embed goes here]
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfKDJ8vYT3P40y0fMck-TQQvfN1c3KDF_KUogW347Pz0Q8MlA/viewform?embedded=true" width="640" height="723" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
 
