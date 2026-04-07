@@ -162,6 +162,41 @@
             text-align: center;
         }
 
+        .rs-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+        .rs-gallery figure { margin: 0; }
+        .rs-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .rs-gallery figcaption {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .rs-link {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-align: center;
+            margin: 1rem 0 2rem;
+        }
+        .rs-link a {
+            color: var(--color-gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-gold);
+        }
+        .rs-link a:hover { color: var(--color-text); border-bottom-color: var(--color-text); }
+        @media (max-width: 600px) {
+            .rs-gallery { grid-template-columns: 1fr; gap: 1.25rem; }
+        }
+
         .form-embed {
             width: 100%;
             min-height: 600px;
@@ -277,6 +312,19 @@
         <p>The Roots &amp; Shoots programme empowers young people worldwide to protect people, animals, and the environment by creating local projects &mdash; connecting over 10,000 groups in more than 60 countries, all shaping a better future together.</p>
 
         <p>Hosted by the Jane Goodall Institute Austria, in the heart of the Women Groundbreakers exhibition.</p>
+
+        <div class="rs-gallery">
+            <figure>
+                <img src="/assets/images/roots-shoots/roots-shoots-1-robert-ratzer.jpg" alt="Roots &amp; Shoots workshop">
+                <figcaption>Photo: Robert Ratzer</figcaption>
+            </figure>
+            <figure>
+                <img src="/assets/images/roots-shoots/roots-shoots-2-daniela-matejschek.jpg" alt="Roots &amp; Shoots workshop">
+                <figcaption>Photo: &copy; Daniela Matejschek</figcaption>
+            </figure>
+        </div>
+
+        <p class="rs-link">More about Roots &amp; Shoots on the <a href="https://janegoodall.at/roots-shoots/" target="_blank" rel="noopener noreferrer">Jane Goodall Institute site</a>.</p>
 
         <div class="form-section">
             <h2>Register</h2>
