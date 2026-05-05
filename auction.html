@@ -96,6 +96,29 @@
             line-height: 1.8;
         }
 
+        .catalogue-intro p + p { margin-top: 1.5rem; }
+
+        .formats-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem auto 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .formats-list li {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .formats-list li::before {
+            content: "·";
+            color: var(--color-accent);
+            margin-right: 0.6rem;
+            font-weight: 700;
+        }
+
         .catalogue-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -299,6 +322,13 @@
 
         <div class="catalogue-intro">
             <p>The full collection of works available for auction. Each lot is listed with its title, year, media, dimensions, and starting bid. All dimensions are approximate.</p>
+            <p>Each artwork is available in the following formats:</p>
+            <ul class="formats-list">
+                <li>Original artwork &mdash; each painting has an original reserve price</li>
+                <li>Fine art print (30 x 40 cm) &mdash; minimum price &euro;60</li>
+                <li>Fine art print (40 x 60 cm) &mdash; minimum price &euro;85</li>
+                <li>Fine art print (50 x 70 cm) &mdash; minimum price &euro;150</li>
+            </ul>
         </div>
 
         <div class="catalogue-grid">
