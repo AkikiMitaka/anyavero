@@ -4,8 +4,558 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Auction — Anya Vero</title>
+    <title>Anya Vero - Women Groundbreakers Auction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --color-light: #1A1A1A;
+            --color-dark: #FFFFFF;
+            --color-accent: #B0A175;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+            padding-top: 120px;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(244, 244, 244, 0.9);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header a { text-decoration: none; color: var(--color-light); }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover { color: var(--color-accent); }
+        nav a.active { font-weight: 600; color: var(--color-accent); }
+
+        section { padding: 4rem 0; }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .catalogue-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem 2.5rem;
+        }
+
+        .catalogue-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catalogue-card .image-wrap {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #f4f4f4;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .catalogue-card .image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .catalogue-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-top: 1.25rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .catalogue-card .meta {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            color: var(--color-light);
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .catalogue-card .bid {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(176, 161, 117, 0.3);
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            background-color: #e8e8e8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-light);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover { opacity: 1; color: var(--color-accent); }
+
+        .footer-icon {
+            display: inline-block;
+            color: var(--color-light);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin: 5px 0;
+            background: #1A1A1A;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active { display: flex; opacity: 1; }
+
+        .mobile-overlay a {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        @media (max-width: 1024px) {
+            .catalogue-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 3rem; }
+            nav { display: none; }
+            .menu-toggle { display: block; }
+            .catalogue-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+    </style>
 </head>
 <body>
+
+    <header>
+        <a href="index.html" class="logo">Anya Vero</a>
+        <nav>
+            <a href="index.html">Vienna 2026</a>
+            <a href="featuredworks.html">Featured Works</a>
+            <a href="womengroundbreakers.html">Women Groundbreakers</a>
+            <a href="searchingforhome.html">Searching For Home</a>
+            <a href="about.html">About</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="mobile-overlay">
+        <a href="index.html">Vienna 2026</a>
+        <a href="featuredworks.html">Featured Works</a>
+        <a href="womengroundbreakers.html">Women Groundbreakers</a>
+        <a href="searchingforhome.html">Searching For Home</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <section class="container">
+        <h1 class="section-title">Auction Catalogue</h1>
+        <p class="section-subtitle">Women Groundbreakers Collection</p>
+
+        <div class="catalogue-intro">
+            <p>The full collection of works available for auction. Each lot is listed with its title, year, media, dimensions, and minimum opening bid.</p>
+        </div>
+
+        <div class="catalogue-grid">
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Hypatia-back-main-square-white-small.jpg" alt="Portrait of Hypatia"></div>
+                <h3>Hypatia</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 80 x 66 cm</p>
+                <p class="bid">Minimum bid: &euro;2,400</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Ada-Lovelace-main-1x1-S.jpg" alt="Portrait of Ada Lovelace"></div>
+                <h3>Ada Lovelace</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 54 x 39 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Sophia-Kovalevska-main-square-S.jpg" alt="Portrait of Sofya Kovalevskaya"></div>
+                <h3>Sofya Kovalevskaya</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 40 x 45 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Hilma-Af-Klint-main-sqaure-S.jpg" alt="Portrait of Hilma Af Klint"></div>
+                <h3>Hilma Af Klint</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 85 x 86 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Marie-Curie-Main-square-S.jpg" alt="Portrait of Marie Curie"></div>
+                <h3>Marie Curie</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 70 x 88 cm</p>
+                <p class="bid">Minimum bid: &euro;2,500</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Lise-Meitner-main-square-S.jpg" alt="Portrait of Lise Meitner"></div>
+                <h3>Lise Meitner</h3>
+                <p class="meta">2023 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 119 x 117 cm</p>
+                <p class="bid">Minimum bid: &euro;3,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Inge-Lehmann-main-square-S.jpg" alt="Portrait of Inge Lehmann"></div>
+                <h3>Inge Lehmann</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 42 x 35 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Hopper-1-S.jpg" alt="Portrait of Grace Hopper"></div>
+                <h3>Grace Hopper</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 90 x 68 cm</p>
+                <p class="bid">Minimum bid: &euro;2,400</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Frida-Kahlo-main-square-S.jpg" alt="Portrait of Frida Kahlo"></div>
+                <h3>Frida Kahlo</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 80 x 95 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Martha-Gellhorn-main-square-S.jpg" alt="Portrait of Martha Gellhorn"></div>
+                <h3>Martha Gellhorn</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 101 x 66 cm</p>
+                <p class="bid">Minimum bid: &euro;2,500</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Rita-Levi-Montalcini-main-transparent-square-S.jpg" alt="Portrait of Rita Levi-Montalcini"></div>
+                <h3>Rita Levi-Montalcini</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 82 x 73 cm</p>
+                <p class="bid">Minimum bid: &euro;2,500</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Dorothy-Hodgkin-main-S.jpg" alt="Portrait of Dorothy Hodgkin"></div>
+                <h3>Dorothy Hodgkin</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 44 x 44 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Hedy-Lamarr-main-square-new-S.jpg" alt="Portrait of Hedy Lamarr"></div>
+                <h3>Hedy Lamarr</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 81 x 74 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Billy-Holiday-main-square-S.jpg" alt="Portrait of Billie Holiday"></div>
+                <h3>Billie Holiday</h3>
+                <p class="meta">2023 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 93 x 84 cm</p>
+                <p class="bid">Minimum bid: &euro;3,000</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Gertrude-Elion-main-square-BETTER-S.jpg" alt="Portrait of Gertrude B. Elion"></div>
+                <h3>Gertrude B. Elion</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 48 x 38 cm</p>
+                <p class="bid">Minimum bid: &euro;1,350</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Katherine-Johnson-main-square-S.jpg" alt="Portrait of Katherine Johnson"></div>
+                <h3>Katherine Johnson</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 48 x 35 cm</p>
+                <p class="bid">Minimum bid: &euro;1,350</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Rosalind-Franklin-square-S.jpg" alt="Portrait of Rosalind Franklin"></div>
+                <h3>Rosalind Franklin</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 78 x 67 cm</p>
+                <p class="bid">Minimum bid: &euro;2,400</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Marie-van-Brittan-Brown-main-square-2-S.jpg" alt="Portrait of Marie Van Brittan Brown"></div>
+                <h3>Marie Van Brittan Brown</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 45 x 42 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Stephanie-Kwolek-main-square-S.jpg" alt="Portrait of Stephanie Kwolek"></div>
+                <h3>Stephanie Kwolek</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 99 x 72 cm</p>
+                <p class="bid">Minimum bid: &euro;2,400</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Maya-Angelou-main-square-S.jpg" alt="Portrait of Maya Angelou"></div>
+                <h3>Maya Angelou</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 95 x 82 cm</p>
+                <p class="bid">Minimum bid: &euro;2,850</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Anne-Frank-main-square-S.jpg" alt="Portrait of Anne Frank"></div>
+                <h3>Anne Frank</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 53 x 53 cm</p>
+                <p class="bid">Minimum bid: &euro;1,600</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Yayoi-Kusama-main-square-S.jpg" alt="Portrait of Yayoi Kusama"></div>
+                <h3>Yayoi Kusama</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil and mixed media on silk &nbsp;·&nbsp; approx. 90 x 68 cm</p>
+                <p class="bid">Minimum bid: &euro;3,000</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Tu-Youyou-main-square-S.jpg" alt="Portrait of Tu Youyou"></div>
+                <h3>Tu Youyou</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil and mixed media on silk &nbsp;·&nbsp; approx. 87 x 72 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/RBG-main-square-S.jpg" alt="Portrait of Ruth Bader Ginsburg"></div>
+                <h3>Ruth Bader Ginsburg</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 85 x 73 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Jane-Goodall-main-square-S.jpg" alt="Portrait of Jane Goodall"></div>
+                <h3>Jane Goodall</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 95 x 89 cm</p>
+                <p class="bid">Minimum bid: &euro;2,600</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Lynn-Conway-main-square-S.jpg" alt="Portrait of Lynn Conway"></div>
+                <h3>Lynn Conway</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 48 x 49 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Patricia-Bath-main-square-S.jpg" alt="Portrait of Patricia Bath"></div>
+                <h3>Patricia Bath</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 77 x 69 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Jocelyn-Burnell-main-square-S.jpg" alt="Portrait of Jocelyn Bell Burnell"></div>
+                <h3>Jocelyn Bell Burnell</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 39 x 36 cm</p>
+                <p class="bid">Minimum bid: &euro;1,350</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Flossie-Wong-Staal-main-square-S.jpg" alt="Portrait of Flossie Wong-Staal"></div>
+                <h3>Flossie Wong-Staal</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 39 x 47 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Marina-Abramovic-main-square-S.jpg" alt="Portrait of Marina Abramovic"></div>
+                <h3>Marina Abramovic</h3>
+                <p class="meta">2021 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 68 x 89 cm</p>
+                <p class="bid">Minimum bid: &euro;2,150</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Ann-Tsukamoto-square-main-S.jpg" alt="Portrait of Ann Tsukamoto"></div>
+                <h3>Ann Tsukamoto</h3>
+                <p class="meta">2020 &nbsp;·&nbsp; Oil on silk &nbsp;·&nbsp; approx. 42 x 38 cm</p>
+                <p class="bid">Minimum bid: &euro;1,250</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Natalija-Aleksandrova-main-square-S.jpg" alt="Portrait of Natalija Aleksandrova"></div>
+                <h3>Natalija Aleksandrova</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 98 x 85 cm</p>
+                <p class="bid">Minimum bid: &euro;2,850</p>
+            </div>
+
+            <div class="catalogue-card">
+                <div class="image-wrap"><img src="/assets/images/wg/Malala-Youzoufsai-main-square-S.jpg" alt="Portrait of Malala Yousafzai"></div>
+                <h3>Malala Yousafzai</h3>
+                <p class="meta">2022 &nbsp;·&nbsp; Oil on silk / faux silk &nbsp;·&nbsp; approx. 76 x 83 cm</p>
+                <p class="bid">Minimum bid: &euro;2,700</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Vienna 2026</a>
+            <a href="featuredworks.html">Featured Works</a>
+            <a href="womengroundbreakers.html">Women Groundbreakers</a>
+            <a href="searchingforhome.html">Searching For Home</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+        <a href="https://instagram.com/anyaveroart" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <p>&copy; 2025 Anya Vero. All rights reserved.</p>
+        <p>hello@anyavero(dot)com</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>
