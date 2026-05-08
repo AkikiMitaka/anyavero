@@ -1,3 +1,7 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/auction", "destination": "/price-list", "permanent": true },
+    { "source": "/auction.html", "destination": "/price-list", "permanent": true }
+  ]
 }
