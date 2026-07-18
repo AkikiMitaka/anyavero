@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/auction", "destination": "/price-list", "permanent": true },
-    { "source": "/auction.html", "destination": "/price-list", "permanent": true }
+    { "source": "/auction.html", "destination": "/price-list", "permanent": true },
+    { "source": "/featuredworks", "destination": "/", "permanent": true },
+    { "source": "/featuredworks.html", "destination": "/", "permanent": true }
   ]
 }
