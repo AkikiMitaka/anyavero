@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Groundbreakers x Jane Goodall Institute Austria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        :root {
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --color-text: #3D2030;
+            --color-beige: #D9CDB0;
+            --color-rose: #C9909A;
+            --color-green: #8EA47C;
+            --color-gold: #B0A175;
+            --color-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        header a {
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .logo:hover {
+            color: var(--color-gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--color-gold);
+        }
+
+        /* --- Section Titles (programme style) --- */
+        .programme-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .programme-title em {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .programme-title strong {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Diagonal Stripe Decoration --- */
+        .stripe {
+            position: absolute;
+            width: 200%;
+            height: 120px;
+            transform: rotate(-8deg);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .stripe-beige { background: var(--color-beige); }
+        .stripe-rose { background: var(--color-rose); }
+        .stripe-green { background: var(--color-green); }
+        .stripe-gold { background: var(--color-gold); }
+
+        /* --- Hero / Cover Section --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+            background: var(--color-bg);
+        }
+
+        .hero .stripe {
+            top: 60%;
+            left: -50%;
+            height: 200px;
+            opacity: 0.5;
+        }
+
+        .hero-heading {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            z-index: 1;
+        }
+
+        .hero-heading-sub {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+            z-index: 1;
+        }
+
+        .hero-date {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--color-text);
+            opacity: 0.7;
+            margin-bottom: 3rem;
+            z-index: 1;
+        }
+
+        .hero-painting {
+            position: relative;
+            z-index: 1;
+            max-width: 450px;
+            width: 80%;
+            margin-bottom: 3rem;
+        }
+
+        .hero-painting img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-footer {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            font-style: italic;
+            z-index: 1;
+            margin-top: 1rem;
+        }
+
+        .hero-site {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            z-index: 1;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Content Sections --- */
+        .section {
+            position: relative;
+            padding: 8rem 2rem;
+            overflow: hidden;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Concept Section --- */
+        .concept-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .concept-text p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .quote {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--color-text);
+            padding: 2rem 0;
+        }
+
+        .quote-attribution {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-style: normal;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .painting-angled {
+            max-width: 280px;
+        }
+
+        .painting-angled img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .painting-caption {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            color: var(--color-text);
+            opacity: 0.6;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .charity-note {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            padding: 1.5rem;
+            background: rgba(217, 205, 176, 0.15);
+            border-left: 3px solid var(--color-gold);
+        }
+
+        /* --- Programme Schedule --- */
+        .schedule {
+            max-width: 800px;
+        }
+
+        .schedule-day {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(61, 32, 48, 0.1);
+            align-items: start;
+        }
+
+        .schedule-day:last-child {
+            border-bottom: none;
+        }
+
+        .day-name {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .day-events p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            line-height: 1.9;
+        }
+
+        .day-events .time {
+            font-weight: 600;
+            color: var(--color-gold);
+        }
+
+        .event-description {
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .event-invitees {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        .programme-painting {
+            max-width: 350px;
+            margin: 4rem 0 0 auto;
+        }
+
+        .programme-painting img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Artist Statement --- */
+        .statement-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .statement-text p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .statement-painting {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .statement-painting img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- JGI Section --- */
+        .jgi-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .jgi-text p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .jgi-photo {
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .jgi-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- The Artist Section --- */
+        .artist-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .artist-text p {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .artist-photo {
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .artist-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Branding watermark (top right of sections) --- */
+        .section-branding {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            opacity: 0.4;
+            text-align: right;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-bg);
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--color-gold);
+        }
+
+        .footer-icon {
+            display: inline-block;
+            color: var(--color-bg);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .footer-icon:hover {
+            opacity: 1;
+            color: var(--color-gold);
+        }
+
+        footer p {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+
+        /* --- Hero Events --- */
+        .hero-events {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            width: 100%;
+            max-width: 640px;
+            margin: 1rem auto 0;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-left: 3px solid var(--color-gold);
+            text-align: left;
+            backdrop-filter: blur(4px);
+        }
+
+        .event-card .event-date {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event-card .event-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--color-text);
+            line-height: 1.3;
+        }
+
+        .programme-note {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-text);
+            opacity: 0.75;
+            text-align: center;
+            margin-top: 2rem;
+            line-height: 1.5;
+        }
+
+        .event-button {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .event-button:hover {
+            background: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        .event-status-full {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.75rem 1.25rem;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+            opacity: 0.55;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .event-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .event-button,
+            .event-status-full {
+                justify-self: center;
+            }
+        }
+
+        /* --- Mobile Menu --- */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin: 5px 0;
+            background: #3D2030;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-overlay a {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #3D2030;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        .mobile-overlay a:hover {
+            color: #B0A175;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .concept-layout,
+            .statement-layout,
+            .jgi-layout,
+            .artist-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .schedule-day {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .painting-angled,
+            .programme-painting,
+            .statement-painting {
+                max-width: 250px;
+                margin: 2rem auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+            .hero-heading-sub {
+                font-size: 1.4rem;
+            }
+            .programme-title {
+                font-size: 2.5rem;
+            }
+            header {
+                padding: 1rem 1.5rem;
+            }
+            nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .section {
+                padding: 5rem 1.5rem;
+            }
+            .quote {
+                font-size: 1.3rem;
+            }
+            .hero {
+                padding: 7rem 1.25rem 3rem;
+            }
+            .hero-events {
+                gap: 1rem;
+            }
+            .event-card {
+                padding: 1rem 1.1rem;
+                gap: 1rem;
+            }
+            .event-card .event-name {
+                font-size: 1.15rem;
+            }
+            .event-card .event-date {
+                font-size: 0.65rem;
+            }
+            .event-button {
+                font-size: 0.65rem;
+                padding: 0.7rem 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Anya Vero</a>
+        <nav>
+            <a href="index.html" class="active">Vienna 2026</a>
+            <a href="featuredworks.html">Featured Works</a>
+            <a href="womengroundbreakers.html">Women Groundbreakers</a>
+            <a href="searchingforhome.html">Searching For Home</a>
+            <a href="about.html">About</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <div class="mobile-overlay">
+        <a href="index.html">Vienna 2026</a>
+        <a href="featuredworks.html">Featured Works</a>
+        <a href="womengroundbreakers.html">Women Groundbreakers</a>
+        <a href="searchingforhome.html">Searching For Home</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- ======================== -->
+    <!-- 1. HERO / COVER          -->
+    <!-- ======================== -->
+    <section class="hero">
+        <div class="stripe stripe-beige" style="top: 55%; left: -50%;"></div>
+        <h1 class="hero-heading">Women Groundbreakers</h1>
+        <p class="hero-heading-sub">x Jane Goodall Institute Austria</p>
+        <p class="hero-date">7 May &ndash; 10 May 2026</p>
+
+        <div class="hero-events">
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Thursday 7 May &middot; 6&ndash;9 pm</div>
+                    <div class="event-name">Vernissage</div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Friday 8 May &middot; 9 am &ndash; 12 pm</div>
+                    <div class="event-name">Roots &amp; Shoots Workshop</div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Friday 8 May &middot; 7 pm</div>
+                    <div class="event-name">Inspiring Women of Vienna Networking</div>
+                </div>
+                <span class="event-status-full">Full</span>
+            </div>
+
+            <div class="event-card">
+                <div>
+                    <div class="event-date">Saturday 9 &ndash; Sunday 10 May</div>
+                    <div class="event-name">Parents with Kids Workshops</div>
+                </div>
+                <a href="family-workshops.html" class="event-button">Register Here</a>
+            </div>
+        </div>
+
+        <p class="programme-note" style="font-size: 1.25rem; opacity: 1; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;"><a href="#programme" style="color: inherit; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px;">Full Programme Below</a></p>
+
+        <div class="hero-painting" style="margin-top: 3rem;">
+            <img src="/assets/images/wg/Jane-Goodall-main-square-S.png" alt="Jane Goodall, oil on silk by Anya Vero">
+        </div>
+
+    </section>
+
+    <!-- ======================== -->
+    <!-- 2. THE CONCEPT            -->
+    <!-- ======================== -->
+    <section class="section" id="concept">
+        <div class="stripe stripe-beige" style="top: -40px; left: -50%; opacity: 0.35;"></div>
+        <div class="section-inner">
+            <h2 class="programme-title"><em>the</em> <strong>Concept</strong></h2>
+
+            <div class="concept-layout">
+                <div class="concept-text">
+                    <p>A four-day art exhibition in the heart of Vienna, focused on inspiring future generations with female role models from the arts, sciences and humanities, featuring talks from the Jane Goodall Institute, cultural events, and business networking opportunities. Celebrating the life of Jane Goodall and other female groundbreakers.</p>
+
+                    <div class="charity-note">
+                        Proceeds from various events throughout the four days will support a range of charitable initiatives, including the Jane Goodall Institute's Clever Girls project, which empowers girls and women to take control of their own lives through education.
+                    </div>
+
+                </div>
+
+                <div class="concept-right">
+                    <div class="quote">
+                        &ldquo;Each and every one of you has a role to play. You may not know it, you may not find it, but your life matters, and you are here for a reason.&rdquo;
+                        <span class="quote-attribution">Jane Goodall</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- 3. THE PROGRAMME          -->
+    <!-- ======================== -->
+    <section class="section" id="programme">
+        <div class="stripe stripe-beige" style="top: -20px; left: -50%; opacity: 0.3;"></div>
+        <div class="section-inner">
+            <h2 class="programme-title"><em>the</em> <strong>Programme</strong></h2>
+
+            <div class="schedule">
+                <div class="schedule-day">
+                    <div class="day-name">Thursday 7th May</div>
+                    <div class="day-events">
+                        <p><span class="time">6 &ndash; 9 pm</span> Vernissage Gala with Jane Goodall Institute</p>
+                        <p class="event-description">A truly special evening with Jane Goodall Institute ambassadors, inspiring people and a special tribute to the one and only Jane Goodall, with proceeds from sold artworks going towards Jane Goodall Institute's Clever Girls project in Uganda. Given the right opportunities, girls can break the cycle of poverty in just one generation! We invite you to be a part of this journey with us, meet incredible people, learn about female role models and have an evening of truly meaningful conversations.</p>
+                        <p class="event-invitees">Co-organised with Frederika Kurtulikova.</p>
+                        <p class="event-invitees">Invitees: Jane Goodall Institute network, British Embassy, UN Women, UN, Austrian politicians &amp; diplomats; IMP, Research Institutes, Oxbridge &amp; LSE network, Austrian Startups, Mompreneurs.</p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-name">Friday 8th May</div>
+                    <div class="day-events">
+                        <p><span class="time">9 am &ndash; 12 pm</span> Roots &amp; Shoots by Jane Goodall Institute</p>
+                        <p class="event-description">A special educational workshop designed for adults and children to learn about Jane Goodall's work and how they can make a change in the world. The Roots &amp; Shoots programme empowers young people worldwide to protect people, animals, and the environment by creating local projects - connecting over 10,000 groups in 60+ countries shaping a better future together.</p>
+                        <p><span class="time">7 pm</span> Inspiring women networking event</p>
+                        <p class="event-invitees">Co-organised with Diana Gubermane.</p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-name">Saturday 9th May</div>
+                    <div class="day-events">
+                        <p><span class="time">12 &ndash; 2 pm</span> Parents with kids open workshops - &ldquo;Meet and greet a scientist&rdquo;</p>
+                        <p><span class="time">3 &ndash; 5 pm</span> Parents and children drawing session</p>
+                        <p><span class="time">7 pm</span> Charity Ned Stranger Concert</p>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-name">Sunday 10th May</div>
+                    <div class="day-events">
+                        <p><span class="time">12 &ndash; 2 pm</span> Parents with kids open workshops - &ldquo;Meet and greet a scientist&rdquo;</p>
+                        <p><span class="time">3 &ndash; 5 pm</span> Mother&rsquo;s Day special: children and mothers drawing session - drawing the mum, bonding, learning about female role models</p>
+                        <p><span class="time">7:30 pm</span> Charity Salsa Night - all proceeds go to charity, dance for love</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="programme-note">&ldquo;Meet a Scientist&rdquo; drop-ins are free. Drawing workshops are 20 EUR per child (accompanying parents free admission).</p>
+
+        </div>
+    </section>
+
+    <div style="text-align: center; padding: 2rem 0;">
+        <img src="/assets/images/wg/Hedy-Lamarr-main-square-new-S.png" alt="Hedy Lamarr, oil on silk by Anya Vero" style="max-width: 350px; width: 80%; height: auto;">
+    </div>
+
+    <!-- ======================== -->
+    <!-- 4. ARTIST STATEMENT       -->
+    <!-- ======================== -->
+    <section class="section" id="statement">
+        <div class="stripe stripe-rose" style="top: -60px; left: -50%; opacity: 0.3;"></div>
+        <div class="section-inner">
+            <h2 class="programme-title"><em>artist</em> <strong>Statement</strong></h2>
+
+            <div class="statement-text">
+                <p>The sense of self is a fluid concept, we are what we consume and what we choose to be. After 30 I realised I didn't have any female role models and all my influences were created by men &ndash; from literature to sciences and the arts. This collection is a personal journey of discovery and empowerment.</p>
+                <p>This body of work examines how innovation, authorship, and contribution are perceived and recorded in relation to women's work. It reflects on the norms through which value is assigned, histories are constructed, and certain forms of achievement become visible while others remain marginal.</p>
+                <p>The event is about inspiring future generations with this idea and re-examining our role models later in life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- 5. JANE GOODALL INSTITUTE -->
+    <!-- ======================== -->
+    <section class="section" id="jgi">
+        <div class="stripe stripe-green" style="top: -40px; left: -50%; opacity: 0.3;"></div>
+        <div class="section-inner">
+            <h2 class="programme-title"><em>Jane Goodall</em><br><strong>Institute Austria</strong></h2>
+
+            <div class="jgi-text">
+                <p>Dr. Jane Goodall, DBE was the founder of the Jane Goodall Institute, UN Messenger of Peace and world-renowned primatologist, conservationist and humanist. She was known worldwide for her 65 years of research on wild chimpanzees in Gombe, Tanzania. In the second half of her life she dedicated herself to a broader field and became a global advocate for a variety of animal and environmental conservation projects.</p>
+                <p>In keeping with the spirit of their founder, the institute continues its work to ensure the survival of the last chimpanzees and to create a healthy environment where people, animals, and nature can live together peacefully.</p>
+            </div>
+
+            <div class="jgi-photo">
+                <img src="/assets/images/Jane_Goodall_wikimedia.jpg" alt="Dr. Jane Goodall">
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- 6. THE ARTIST             -->
+    <!-- ======================== -->
+    <section class="section" id="artist">
+        <div class="stripe stripe-gold" style="top: -40px; left: -50%; opacity: 0.3;"></div>
+        <div class="section-inner">
+            <h2 class="programme-title"><em>the</em> <strong>Artist</strong></h2>
+
+            <div class="artist-layout">
+                <div class="artist-text">
+                    <p>Anya Vero explores the blurred lines between art and anthropology, with a signature style of oil on silk stretched over asymmetrical canvases that play with explicit non-conformity.</p>
+                    <p>Russian-Ukrainian by descent, born and raised in Latvia, she holds an MFA in Fine Art from Oxford University and Masters in Anthropology from SOAS and the London School of Economics.</p>
+                    <p>Her past exhibitions and features include: the Self Impressions Tate Exchange event at Tate Modern, London; Art For Freedom in London in partnership with international anti-slavery charity A21 and Mexican charities SINTRATA and the Comisi&oacute;n Unidos Contra la Trata, working with survivors of human trafficking; group show Rite Of Spring at MuseumLV in Riga; Women Groundbreakers with the Institute of Molecular Pathology in Vienna; and, most recently, Searching For Home: a series of large scale paintings exploring identity and belonging, exhibited in the ex-RAF Neatishead nuclear bunker in Norfolk, England and featured on national news.</p>
+                </div>
+                <div class="artist-photo">
+                    <img src="/assets/images/AnyaVero-About.jpg" alt="Anya Vero, the artist">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- FOOTER                    -->
+    <!-- ======================== -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Vienna 2026</a>
+            <a href="featuredworks.html">Featured Works</a>
+            <a href="womengroundbreakers.html">Women Groundbreakers</a>
+            <a href="searchingforhome.html">Searching For Home</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+        <a href="https://instagram.com/anyaveroart" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <p>&copy; 2025 Anya Vero. All rights reserved.</p>
+        <p>hello@anyavero(dot)com</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileOverlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const items = document.querySelectorAll('.section, .hero');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            items.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 1s ease, transform 1s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
